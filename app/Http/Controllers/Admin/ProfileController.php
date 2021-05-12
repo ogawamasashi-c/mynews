@@ -15,6 +15,11 @@ class ProfileController extends Controller
 {
     return view('admin.profile.edit');
 }
-
+// 以下を追記
+public function create(Request $request)
+{
+    
+    return redirect('admin/profile/create');
+}  
     
 }
