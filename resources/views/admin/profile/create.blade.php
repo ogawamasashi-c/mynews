@@ -24,8 +24,8 @@
                     <div class="from-group row">
                     <label class="col-md-2" for="title">性別</label>
                     <div class="col-md-10">
-                        <input type="radio" name="sex" value="男性">男性
-                        <input type="radio" name="sex" value="女性">女性
+                        <input type="radio" name="gender" value="{{ old('gender') ? 'checked' : '' }}">男性
+                        <input type="radio" name="gender" value="{{ old('gender') ? 'checked' : '' }}">女性
                     </div>
                     </div>
                     <div class="form-group row">
