@@ -18,26 +18,28 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="from-group row">
                     <label class="col-md-2" for="title">性別</label>
                     <div class="col-md-10">
-                        <input type="radio" name="gender" value="{{ old('gender') ? 'checked' : '' }}">男性
-                        <input type="radio" name="gender" value="{{ old('gender') ? 'checked' : '' }}">女性
+                    <input type="radio" name="gender"  value="{{ old('gender')  ? 'checked' : 'male' }}">
+                    <label for="female">男性</label>
+                    <input type="radio" name="gender"  value="{{ old('gender')  ? 'checked' : 'female' }}">
+                    <label for="female">女性</label>
                     </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="10">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="hobby" rows="10">{{ old('hobby') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">自己紹介</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" name="body" rows="14">{{ old('body') }}</textarea>
+                        <textarea class="form-control" name="introduction" rows="14">{{ old('introduction') }}</textarea>
                         </div>
                     </div>
                     {{ csrf_field() }}

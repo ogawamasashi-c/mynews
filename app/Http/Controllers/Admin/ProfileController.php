@@ -12,6 +12,10 @@ class ProfileController extends Controller
   {
       return view('admin.profile.create');
   }
+  public function update(Request $request)
+  {
+    return redirect('admin.profile.index');
+  }
 
   public function create(Request $request)
   {
@@ -28,7 +32,7 @@ class ProfileController extends Controller
         $path = $request->file('image')->store('public/image');
         $profile->image_path = basename($path);
       } else {
-          $news->image_path = null;
+          $profile->image_path = null;
       }
 
       // フォームから送信されてきた_tokenを削除する
@@ -37,10 +41,22 @@ class ProfileController extends Controller
       unset($form['image']);
 
       // データベースに保存する
-      $news->fill($form);
-      $news->save();
+      $profile->fill($form);
+      $profile->save();
 
       return redirect('admin/profile/create');
+  }
+  public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Profile::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Profile::all();
+      }
+      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
 }
