@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title', '登録済みニュースの一覧')
+@section('title', '登録済みプロフィールの一覧')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>ニュース一覧</h2>
+            <h2>プロフィール覧</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">名前</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -39,11 +39,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $news)
+                            @foreach($posts as $profile)
                                 <tr>
-                                    <th>{{ $news->id }}</th>
-                                    <td>{{ Str::limit($news->title, 100) }}</td>
-                                    <td>{{ Str::limit($news->body, 250) }}</td>
+                                    <th>{{ $profile->id }}</th>
+                                    <td>{{ $profile->name }}</td>
+                                    <td>{{ $profile->gender }}</td>
+                                    <td>{{ $profile->hobby }}</td> 
+                                    <td>{{ $profile->introduction }}</td> 
                                 </tr>
                             @endforeach
                         </tbody>

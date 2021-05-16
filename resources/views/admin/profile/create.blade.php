@@ -24,19 +24,19 @@
                     <div class="form-group row">
     <label for="gender" class="col-sm-4 col-form-label text-md-right">性別</label>
 
-    <div class="col-md-6" style="padding-top: 8px">
-        <input id="gender-m" type="radio" name="gender" value="male">
-        <label for="gender-m">男性</label>
-        <input id="gender-f" type="radio" name="gender" value="female">
-        <label for="gender-f">女性</label>
+                                <div class="col-md-6" style="padding-top: 8px">
+                                    <input id="gender-m" type="radio" name="gender" value="male">
+                                        <label for="gender-m">男性</label>
+                                    <input id="gender-f" type="radio" name="gender" value="female">
+                                        <label for="gender-f">女性</label>
 
-        @if ($errors->has('gender'))
+                    @if ($errors->has('gender'))
             <span class="invalid-feedback">
                 <strong>{{ $errors->first('gender') }}</strong>
-            </span>
-        @endif
-    </div>
-</div>
+                    </span>
+                             @endif
+                        </div>
+                </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">趣味</label>
                         <div class="col-md-10">
