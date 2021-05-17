@@ -46,6 +46,29 @@
                                     <td>{{ $profile->gender }}</td>
                                     <td>{{ $profile->hobby }}</td> 
                                     <td>{{ $profile->introduction }}</td> 
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </thead>
+                        <tbody>
+                            @foreach($posts as $profile)
+                                <tr>
+                                    <th>{{ $profile->id }}</th>
+                                    <td>{{ $profile->name }}</td>
+                                    <td>{{ $profile->gender }}</td>
+                                    <td>{{ $profile->hobby }}</td>
+                                    <td>{{ $profile->introduction }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
