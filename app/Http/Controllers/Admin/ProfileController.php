@@ -12,10 +12,7 @@ class ProfileController extends Controller
   {
       return view('admin.profile.create');
   }
-  public function update(Request $request)
-  {
-    return redirect('admin.profile.index');
-  }
+  
 
   public function create(Request $request)
   {
@@ -55,7 +52,7 @@ class ProfileController extends Controller
   public function edit(Request $request)
   {
       // News Modelからデータを取得する
-      $profile = Profile::find($request->id);
+      $profile = Profile::find($request->name);
       if (empty($profile)) {
           abort(404);
       }
@@ -63,7 +60,7 @@ class ProfileController extends Controller
   }
 
 
-  public function updater(Request $request)
+  public function update(Request $request)
   {
       // Validationをかける
       $this->validate($request, Profile::$rules);
@@ -76,7 +73,7 @@ class ProfileController extends Controller
       // 該当するデータを上書きして保存する
       $Profile->fill($Profile_form)->save();
 
-      return redirect('admin/profile');
+      return redirect('admin/profile.index');
   }
       // 以下を追記
       public function delete(Request $request)

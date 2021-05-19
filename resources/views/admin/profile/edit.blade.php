@@ -18,16 +18,16 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
                     <label for="gender" class="col-sm-4 col-form-label text-md-right">性別</label>
 
                                 <div class="col-md-6" style="padding-top: 8px">
-                                    <input id="gender-m" type="radio" name="gender" value="male">
+                                    <input id="gender-m" type="radio" name="gender" value="male"{{ $exaple->like == 'male' ? 'checked' : '' }}>
                                         <label for="gender-m">男性</label>
-                                    <input id="gender-f" type="radio" name="gender" value="female">
+                                    <input id="gender-f" type="radio" name="gender" value="female"{{ $exaple->like == 'female' ? 'checked' : '' }}>
                                         <label for="gender-f">女性</label>
 
                     @if ($errors->has('gender'))
@@ -40,13 +40,13 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="body">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hobby" rows="10">{{ old('hobby') }}</textarea>
+                            <textarea class="form-control" name="hobby" rows="10">{{ $profile_form->hobby }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">自己紹介</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" name="introduction" rows="14">{{ old('introduction') }}</textarea>
+                        <textarea class="form-control" name="introduction" rows="14">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -46,11 +46,6 @@
                                     <td>{{ $profile->gender }}</td>
                                     <td>{{ $profile->hobby }}</td> 
                                     <td>{{ $profile->introduction }}</td> 
-                                    <td>
-                                        <div>
-                                            <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
-                                        </div>
-                                    </td>
                                 </tr>
                                 </thead>
                         <tbody>
