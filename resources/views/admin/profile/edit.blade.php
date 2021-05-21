@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール編集</h2>
-                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -16,7 +16,7 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">氏名</label>
+                        <label class="col-md-2" for="name">氏名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
                         </div>
@@ -25,9 +25,9 @@
                     <label for="gender" class="col-sm-4 col-form-label text-md-right">性別</label>
 
                                 <div class="col-md-6" style="padding-top: 8px">
-                                    <input id="gender-m" type="radio" name="gender" value="male"{{ $exaple->like == 'male' ? 'checked' : '' }}>
+                                    <input id="gender-m" type="radio" name="gender" value="male" >
                                         <label for="gender-m">男性</label>
-                                    <input id="gender-f" type="radio" name="gender" value="female"{{ $exaple->like == 'female' ? 'checked' : '' }}>
+                                    <input id="gender-f" type="radio" name="gender" value="female" >
                                         <label for="gender-f">女性</label>
 
                     @if ($errors->has('gender'))

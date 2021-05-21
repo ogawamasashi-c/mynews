@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">名前</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
+                            <input type="text" class="form-control" name="cond_name" value={{ $cond_name }}>
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -36,26 +36,17 @@
                                 <th width="15%">性別</th>
                                 <th width="15%">趣味</th>
                                 <th width="50%">自己紹介</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $profile)
                                 <tr>
                                     <th>{{ $profile->id }}</th>
-                                    <td>{{ $profile->name }}</td>
-                                    <td>{{ $profile->gender }}</td>
-                                    <td>{{ $profile->hobby }}</td> 
-                                    <td>{{ $profile->introduction }}</td> 
-                                </tr>
-                                </thead>
-                        <tbody>
-                            @foreach($posts as $profile)
-                                <tr>
-                                    <th>{{ $profile->id }}</th>
-                                    <td>{{ $profile->name }}</td>
-                                    <td>{{ $profile->gender }}</td>
-                                    <td>{{ $profile->hobby }}</td>
-                                    <td>{{ $profile->introduction }}</td>
+                                    <td>{{ Str::limit($profile->name, 50) }}</td>
+                                    <td>{{ Str::limit($profile->gender, 30) }}</td>
+                                    <td>{{ Str::limit($profile->hobby, 100) }}</td>
+                                    <td>{{ Str::limit($profile->introduction, 150) }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
