@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Myプロフィール')
-
+@csrf
 @section('content')
     <div class="container">
         <div class="row">

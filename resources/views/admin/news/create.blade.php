@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'ニュースの新規作成')
-
+@csrf
 @section('content')
     <div class="container">
         <div class="row">
